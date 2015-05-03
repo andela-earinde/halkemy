@@ -1,0 +1,142 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+        <title>halkemy | {% block title%}{% endblock %}</title>
+        <meta name="description" content=""/>
+        <meta name="viewport" content="width=device-width,initial-scale=1"/>
+
+        <link rel="stylesheet" href="{% static "halkemi/css/bootstrap.min.css" %}"/>
+        <link rel="stylesheet" href="{% static "halkemi/css/icomoon-social.css" %}"/>
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="{% static "halkemi/css/leaflet.css" %}" />
+		<!--[if lte IE 8]>
+		    <link rel="stylesheet" href="css/leaflet.ie.css" />
+		<![endif]-->
+		<link rel="stylesheet" href="{% static "halkemi/css/main.css" %}"/>
+
+        <script src="{% static "halkemi/js/modernizr-2.6.2-respond-1.1.0.min.js" %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+<!-- Navigation & Logo-->
+        <div class="mainmenu-wrapper">
+            <div class="container">
+            
+        <!-- if logged in, hide this -->  
+ 
+            <!--check if user is logged in-->
+            {% if user.is_authenticated %}
+             
+            <div class="menuextras">
+                <div class="extras">
+                        <ul>
+                            <li><a href="{% url 'halkemi:profile' %}" class="btn btn-blue"><span class="glyphicon glyphicon-user icon-white"> Profile</a></li>                          
+                            <li><a href="{% url 'halkemi:signout' %}" class="btn btn-blue">Signout</a></li>
+                            
+                        </ul>
+                    <div class="btn-group">
+                       <a class="btn btn-blue  dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-cog icon-white">  Account <span class="caret"></span> </a>
+                       <ul class="dropdown-menu">
+                          <li><a href="delete_account_conf.php">Delete Account</a></li>
+                          <li><a href="change_password.php">Change Password</a></li>
+                          <li><a href="edit_info.php">Edit Information</a></li>
+                       </ul>
+                    </div>
+               </div>
+            </div>
+                   
+            {% else %}
+
+                <div class="menuextras">
+                    <div class="extras">
+                        <ul>
+                            <li><a href="{%url 'halkemi:signup'%}" class="btn btn-blue">Register</a></li>
+                            <li><a href="{% url 'halkemi:login'%}" class="btn btn-blue">Login</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+            {% endif %}  <!--end of if-->
+      
+                <nav id="mainmenu" class="mainmenu">
+                    <ul>
+                        <li class="logo-wrapper"><a href="index.html"><img src="{% static "halkemi/halkemy7.jpg" %}"/></a></li>
+                        <li>
+                            <a href="{% url 'halkemi:index' %}"><span class="glyphicon glyphicon-home icon-white"> HOME</a>
+                        </li>
+                        <li>
+                            <a href="gallery.php"><span class="glyphicon glyphicon-picture"> GALLERY</a>
+                        </li>
+                        <li>
+                            <a href="about_us.php">ABOUT</a>
+                            
+                        </li>
+                        
+                    </ul>
+                </nav>
+            </div>
+        </div>
+<!-- End of Navigation -->
+
+      {% block body %} {% endblock %}
+            
+<!-- Footer -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-footer col-md-6 col-xs-6">
+                        <h3>Navigate</h3>
+                        <ul class="no-list-style footer-navigate-section">
+                            <li><a href="index.php">HOME</a></li>
+                            <li><a href="gallery.php">GALLERY</a></li>
+                            <li><a href="about_us.php">ABOUT US</a></li>
+                            <li><a href="contact_us.php">CONTACT US</a></li>
+                            <li><a href="#">OUR TEAM</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="col-footer col-md-6 col-xs-6">
+                        <h3>Contacts</h3>
+                        <p class="contact-us-details">
+                            <b>Address: </b>Ibadan<br/>
+                            <b>Mobile 1: </b>08068247687<br/>
+                            <b>Mobile 2: </b>08038619121<br/>
+                            <b>Email: </b> <a href="mailto:contactus@halkemy.com">contactus@halkemy.com</a>
+                        </p>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-copyright">&copy; 2014 Halkemy. All rights reserved.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Javascripts -->
+       
+        <script src="{% static "halkemi/js/jquery1.js" %}"></script>            
+        <script src="{% static "halkemi/js/bootstrap.min.js" %}"></script>
+        <script src="{% static "halkemi/js/jquery.masonry.min.js" %}"></script>
+        <script src="{% static "halkemi/js/base.js" %}"></script>
+        <script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+        <script src="{% static "halkemi/js/jquery.fitvids.js" %}"></script>
+        <script src="{% static "halkemi/js/jquery.sequence-min.js" %}"></script>
+        <script src="{% static "halkemi/js/jquery.bxslider.js" %}"></script>
+        <script src="{% static "halkmemi/js/main-menu.js" %}"></script>
+        <script src="{% static "halkemi/js/template.js" %}"></script>        
+    </body>
+</html>        

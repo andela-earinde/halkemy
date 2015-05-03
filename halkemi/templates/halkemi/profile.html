@@ -1,0 +1,62 @@
+{% extends "halkemi/base.html" %}
+
+{% block title %}Profile{% endblock %}        
+ 
+{% block body%}
+       	<!-- user header -->
+        <div class="section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-4">
+                  <div class="product-image-large">
+	    			<img src= ""  alt="picture"/>
+	    	    	</div>
+                </div>
+                
+                <div class="col-md-6">
+                    <table class="jobs-list">
+	    					<tr>
+	    						<th><span class="glyphicon glyphicon-user"></span>Username: {{user.username}}</th>
+    						
+	    					</tr>
+	    					<tr>
+	    						<!-- Position -->
+	    						<td class="job-position">
+	    						   <b>Skill:</b>  
+	    						</td>
+	    							    						
+	    					</tr>
+
+	    					<tr>
+	    						<td class="job-position">
+  							      <b>About me: </b><p class="profile"></p> 
+	    						</td>	    						
+	    					</tr>
+	    				</table>
+	    			</div>
+
+
+                </div>
+              </div>
+            </div>
+          
+        <!-- End of user header -->
+        
+        <!-- User navigation -->
+    <div class="section section-breadcrumbs">
+        <div class="container">
+    		<div class="row">
+	    		<div class="col-xs-6 col-md-2">
+	    		<a href="{% url 'halkemi:edit-profile'%}" class="btn btn-blue">Edit profile</a>	
+				</div>
+                <div class="col-xs-6 col-md-2">
+	    		<a href="" class="btn btn-blue">Add your work</a>	
+				</div>
+                <div class="col-xs-6 col-md-2">
+	    		<a href="" class="btn btn-blue">Show work</a>	
+				</div>
+			</div>
+		</div>
+	</div>
+    
+{% endblock %}     

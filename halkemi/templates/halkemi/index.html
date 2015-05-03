@@ -1,0 +1,62 @@
+{% extends "halkemi/base.html" %}  <!-- this file extends the base file -->
+
+{% block title %} Home {% endblock%}
+
+{% block body %}   <!--start of the section that is injected in base.blade.php-->
+ <!-- Homepage Slider -->
+        <div class="homepage-slider">
+        	<div id="sequence">
+				<ul class="sequence-canvas">
+					<!-- Slide 1 -->
+					<li class="bg4">
+                      
+						<!-- Slide Title -->
+						<h2 class="title">Welcome to Halkemy!</h2>
+						<!-- Slide Text -->
+						<h3 class="subtitle">Halkemy is a new platform for promoting Creativity</h3>
+					 							
+					</li>
+					<!-- End Slide 1 -->
+					<!-- Slide 2 -->
+					<li class="bg3">
+						<!-- Slide Title -->
+						<h2 class="title">Be Creative!</h2>
+						<!-- Slide Text -->
+						<h3 class="subtitle">The site is aimed at exhibiting the creativity of individuals.</h3>
+						
+					</li>
+					<!-- End Slide 2 -->
+					<!-- Slide 3 -->
+					<li class="bg1">
+						<!-- Slide Title -->
+						<h2 class="title">Join and explore!</h2>
+						<!-- Slide Text -->
+						<h3 class="subtitle">View the creative works of individuals and also display yours</h3>
+						
+					</li>
+					<!-- End Slide 3 -->
+				</ul>
+				<div class="sequence-pagination-wrapper">
+					<ul class="sequence-pagination">
+						<li>1</li>
+						<li>2</li>
+						<li>3</li>
+					</ul>
+				</div>
+			</div>
+        </div>
+        <!-- End Homepage Slider -->			
+
+		<!-- features bar -->
+	    <div class="section section-white">
+			<div class="container">
+            <div class="row">
+            <div class="col-md-6 col-md-offset-5">
+			<h1>Features</h1>
+            </div>
+            </div>	
+	    	</div>
+		</div>
+		<!-- End of features bar -->
+
+{% endblock %}	<!-- end of the section-->

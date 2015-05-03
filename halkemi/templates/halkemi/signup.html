@@ -1,0 +1,109 @@
+{% extends "halkemi/base.html" %}
+<!-- Log in -->
+
+{% block title %}Signup{% endblock %}
+ 
+{% block body %}
+     <div class="section section-breadcrumbs">
+        <div class="container">
+    		<div class="row">
+	    		<div class="col-md-12">
+	    			<h1>Signup</h1>
+				</div>
+			</div>
+		</div>
+	</div>
+        
+        <div class="section">
+	    	<div class="container">
+				<div class="row">
+				 {% if message %}
+                   <div class="alert alert-success">
+                       {{message}}
+                   </div>
+                 {% endif %}	
+                 <div class="col-sm-6 col-sm-offset-1 social-login">
+						<p>HELLO! To register on this site, you have to be invited.</p>
+						<p> The site is still under development(closed beta). If
+                           You are interested or have anyone who might be interested,
+                           you can <a href="contact_us.php">CONTACT US</a>. </p>
+					</div>
+				
+					<div class="col-sm-5">
+						<div class="basic-login">
+							<form method="post" action="{%url 'halkemi:signup'%}" role="form">  
+							   {% csrf_token %} 
+								<div class="form-group {%if form.username.errors%}has-error {%endif%}">
+		        				 	<label for="signup-username"><i class="icon-user"></i> <b>Username</b></label>
+									  {{form.username}}
+									{% if form.username.errors %}
+                                      {%for error in form.username.errors %}
+									    <p class="text-danger">{{error|escape}}</p>
+									  {%endfor%}  
+									{%endif%}
+								</div>
+                                
+                                <div class="form-group {%if form.email.errors%}has-error {%endif%}">
+		        				 	<label for="signup-email"><i class="icon-user"></i> <b>Email</b></label>
+									     {{form.email}}
+								    {% if form.email.errors %}
+                                       {% for error in form.email.errors %}
+									     <p class="text-danger">{{ error|escape }}</p>
+									    {% endfor %}
+									{% endif %}
+								</div>
+                                
+                                <div class="form-group {%if form.first_name.errors%}has-error {%endif%}">
+		        				 	<label for="signup-firstname"><i class="icon-lock"></i> <b>First Name</b></label>
+									   {{form.first_name}}
+                                    {%if form.first_name.errors%}
+								       {% for error in form.first_name.errors %}
+									     <p class="text-danger">{{error|escape}}</p>
+									   {%endfor%}
+								    {%endif%}
+								</div>
+                                
+                                <div class="form-group {%if form.last_name.errors%}has-error {%endif%}">
+		        				 	<label for="signup-lastname"><i class="icon-lock"></i> <b>Last Name</b></label>
+									   {{form.last_name}}
+                                    {%if form.last_name.errors%}
+								       {% for error in form.last_name.errors %}
+									     <p class="text-danger">{{error|escape}}</p>
+									   {%endfor%}
+								    {%endif%}
+								</div>
+                                
+								<div class="form-group {%if form.password.errors%}has-error {%endif%}">
+		        				 	<label for="login-password"><i class="icon-lock"></i> <b>Password</b></label>
+									   {{form.password}}
+								     {%if form.password.errors%}
+								       {% for error in form.password.errors %}
+									     <p class="text-danger">{{error|escape}}</p>
+									   {%endfor%}
+								    {%endif%}
+								</div>
+                                
+                                <div class="form-group {%if form.vpassword.errors%}has-error {%endif%}">
+		        				 	<label for="login-password"><i class="icon-lock"></i> <b>Password</b></label>
+									   {{form.vpassword}}
+								     {%if form.vpassword.errors%}
+								       {% for error in form.vpassword.errors %}
+									     <p class="text-danger">{{error|escape}}</p>
+									   {%endfor%}
+								    {%endif%}
+								</div>
+                                
+								<div class="form-group">													
+									<button type="submit" class="btn pull-right" >Signup</button>
+									<div class="clearfix"></div>
+								</div>
+							</form>
+						</div>
+
+					</div>                  
+                    
+				</div>
+			</div>
+		</div>
+       
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+
+{% block title%} Home {% endblock %}
+
+{% block content %}
+
+      <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+             {% for blog_post in blog_posts%}
+                <div class="post-preview">
+                    <a href="post.html">
+                        <h2 class="post-title">
+                            {{ blog_post.blog_heading }}
+                        </h2>
+                        <h3 class="post-subtitle">
+                            {{ blog_post.blog_subheading }}
+                        </h3>
+                    </a>
+                    <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on {{ blog_post.blog_pub_date }}</p>
+                </div>
+              {% endfor %}
+            </div>
+        </div>
+      </div>
+{% endblock %}
